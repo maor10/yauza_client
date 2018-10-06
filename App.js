@@ -19,6 +19,16 @@ export default class App extends React.Component {
         await Expo.Font.loadAsync({
             'Roboto': require('native-base/Fonts/Roboto.ttf'),
             'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+            'Lato-Black': require('./assets/fonts/Lato-Black.ttf'),
+            'Lato-BlackItalic': require('./assets/fonts/Lato-BlackItalic.ttf'),
+            'Lato-Bold': require('./assets/fonts/Lato-Bold.ttf'),
+            'Lato-BoldItalic': require('./assets/fonts/Lato-BoldItalic.ttf'),
+            'Lato-Hairline': require('./assets/fonts/Lato-Hairline.ttf'),
+            'Lato-HairlineItalic': require('./assets/fonts/Lato-HairlineItalic.ttf'),
+            'Lato-Italic': require('./assets/fonts/Lato-Italic.ttf'),
+            'Lato-Light': require('./assets/fonts/Lato-Light.ttf'),
+            'Lato-LightItalic': require('./assets/fonts/Lato-LightItalic.ttf'),
+            'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf')
         });
         this.setState({loading: false});
 

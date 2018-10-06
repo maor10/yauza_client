@@ -4,6 +4,7 @@ import {
     Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,
     View
 } from 'native-base';
+import LatoText from "./general/LatoText";
 
 
 export default class Home extends React.Component {
@@ -12,7 +13,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Text style={{ fontSize: 50, textAlign: 'center' }}>?</Text>
+                <Text type="light" style={{ fontSize: 90, textAlign: 'center' }}>?</Text>
                 <View style={styles.optionsContainer}>
                     <View style={ styles.bodySection }>
                         <Image
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#b3faff',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        fontFamily: 'Lato-Light'
     },
 
     optionsContainer: {
