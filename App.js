@@ -1,6 +1,12 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
+import Home from "./components/Home";
+import {
+  createStackNavigator,
+} from 'react-navigation';
+import SellSelf from "./components/SellSelf";
+
 
 
 export default class App extends React.Component {
@@ -23,40 +29,9 @@ export default class App extends React.Component {
             return <Expo.AppLoading />;
         }
         return (
-            <Container>
-                <Header>
-                    <Left>
-                        <Button transparent>
-                            <Icon name='menu'/>
-                        </Button>
-                    </Left>
-                    <Body>
-                    <Title>Header</Title>
-                    </Body>
-                    <Right />
-                </Header>
-                <Content>
-                    <Text>
-                        This is Contentk Section
-                    </Text>
-                </Content>
-                <Footer>
-                    <FooterTab>
-                        <Button full>
-                            <Text>Footer</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
-            </Container>
+            <Home />
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#b3faff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+
