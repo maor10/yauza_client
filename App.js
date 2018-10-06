@@ -3,10 +3,38 @@ import {StyleSheet} from 'react-native';
 import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
 import Home from "./components/Home";
 import {
-  createStackNavigator,
+    createStackNavigator,
 } from 'react-navigation';
 import SellSelf from "./components/SellSelf";
+import {LinearGradient} from "expo";
+import BuyThrow from "./components/BuyThrow";
+import FindPerson from "./components/FindPerson";
 
+
+const RootStack = createStackNavigator(
+    {
+        Home: {
+            screen: Home
+        },
+        SellSelf: {
+            screen: SellSelf
+        },
+        BuyThrow: {
+            screen: BuyThrow
+        }
+    },
+    {
+        initialRouteName: 'Home',
+        headerMode: 'none',
+        navigationOptions: {
+            headerVisible: false,
+        },
+        cardStyle: {
+            backgroundColor: "transparent",
+        },
+        transitionConfig: () => ({containerStyle: {}})
+    }
+);
 
 
 export default class App extends React.Component {
@@ -39,9 +67,17 @@ export default class App extends React.Component {
             return <Expo.AppLoading />;
         }
         return (
-            <Home />
+            <LinearGradient colors={['#c2e59c', '#64b3f4']} style={styles.linearGradient}>
+                <RootStack />
+            </LinearGradient>
         );
     }
 }
 
+
+const styles = StyleSheet.create({
+    linearGradient: {
+        flex: 1
+    },
+});
 

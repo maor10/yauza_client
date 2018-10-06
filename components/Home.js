@@ -1,8 +1,8 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {Image, StyleSheet, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
 import {
-    Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,
-    View
+    Button,
+    Container, View
 } from 'native-base';
 import LatoText from "./general/LatoText";
 
@@ -11,28 +11,31 @@ export default class Home extends React.Component {
 
 
     render() {
+        const {navigate} = this.props.navigation;
         return (
             <Container style={styles.container}>
-                <Text type="light" style={{ fontSize: 90, textAlign: 'center' }}>?</Text>
+                <LatoText type="Italic" color='white' size={120} style={{textAlign: 'center', marginBottom: 40}}>Yauza!</LatoText>
                 <View style={styles.optionsContainer}>
                     <View style={ styles.bodySection }>
-                        <Image
-                            style={styles.optionImage}
-                            source={require('../assets/splash_option.png')}/>
-                        <Text style={styles.sectionText}>Do it for the lolz</Text>
+                        <TouchableOpacity onPress={() => navigate('BuyThrow')}>
+                            <Image
+                                style={styles.optionImage}
+                                source={require('../assets/splash_option.png')}/>
+                            <LatoText
+                                style={styles.sectionText} size={15} type="Black">Do it for the lolz</LatoText>
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.lineWrapper}>
-                        <View style={styles.line}/>
-                    </View>
-                    <TouchableWithoutFeedback>
-                        <View style={ styles.bodySection }>
+
+                    <View style={ styles.bodySection }>
+                        <TouchableOpacity onPress={() => navigate('SellSelf')}>
                             <Image
                                 style={styles.optionImage}
                                 source={require('../assets/money-bag.png')}/>
-                            <Text
-                                style={styles.sectionText}>Do it for the moneyz</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
+                            <LatoText
+                                style={styles.sectionText} size={15} type="Black">Do it for the moneyz</LatoText>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </Container>
         );
@@ -40,13 +43,16 @@ export default class Home extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    linearGradient: {
+        flex: 1
+    },
+
     container: {
         flex: 1,
-        backgroundColor: '#b3faff',
+        backgroundColor: 'transparent',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        fontFamily: 'Lato-Light'
     },
 
     optionsContainer: {
@@ -86,6 +92,6 @@ const styles = StyleSheet.create({
 
     sectionText: {
         textAlign: 'center',
-        fontFamily: 'Roboto'
+        color: 'white'
     }
 });

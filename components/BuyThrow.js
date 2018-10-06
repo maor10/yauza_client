@@ -1,30 +1,32 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import {
-    Container, View, Icon
+    Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,
+    View, Input, Item
 } from 'native-base';
 import LatoText from "./general/LatoText";
 import YauzaInput from "./general/YauzaInput";
 import YauzaButton from "./general/YauzaButton";
 
 
-export default class SellSelf extends React.Component {
+export default class BuyThrow extends React.Component {
 
 
     render() {
         return (
             <Container style={styles.container}>
-                <YauzaButton style={{position: 'absolute', top: 10}} />
-                <Icon type="FontAwesome" name="home" />
-                <LatoText type="Black" color="white" size={35} style={{ textAlign: 'center', marginBottom: 45, padding: 20 }}>
-                    Hi! How much is your pride worth?
+                <LatoText type="Black" color="white" size={35} style={{ textAlign: 'center' }}>
+                    How much are you willing to pay?
+                </LatoText>
+                <LatoText type="Black" color="white" size={20} style={{ textAlign: 'center', marginBottom: 45, padding: 20 }}>
+                    We'll send you a notification when we find your bitch
                 </LatoText>
                 <View style={styles.inputGroup}>
                     <YauzaInput style={{ marginRight: 10, width: 60 }} />
                     <LatoText size={40}>$</LatoText>
                 </View>
                 <View style={styles.sellSelfSubmitButtonWrapper}>
-                    <YauzaButton text="Throw Balloons At Me!"  onPress={() => {}} />
+                    <YauzaButton text="Find me someone to yauza!"  onPress={() => {}} />
                 </View>
             </Container>
         );
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20
     },
-    
+
     sellSelfSubmitButtonWrapper: {
         display: 'flex',
         flexDirection: 'row',
