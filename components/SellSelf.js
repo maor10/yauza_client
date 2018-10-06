@@ -6,6 +6,7 @@ import {
 import LatoText from "./general/LatoText";
 import YauzaInput from "./general/YauzaInput";
 import YauzaButton from "./general/YauzaButton";
+import BackButton from "./general/BackButton";
 
 
 export default class SellSelf extends React.Component {
@@ -14,8 +15,7 @@ export default class SellSelf extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <YauzaButton style={{position: 'absolute', top: 10}} />
-                <Icon type="FontAwesome" name="home" />
+                <BackButton navigation={this.props.navigation} />
                 <LatoText type="Black" color="white" size={35} style={{ textAlign: 'center', marginBottom: 45, padding: 20 }}>
                     Hi! How much is your pride worth?
                 </LatoText>

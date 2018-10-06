@@ -7,6 +7,7 @@ import {
 import LatoText from "./general/LatoText";
 import YauzaInput from "./general/YauzaInput";
 import YauzaButton from "./general/YauzaButton";
+import BackButton from "./general/BackButton";
 
 
 export default class BuyThrow extends React.Component {
@@ -15,6 +16,7 @@ export default class BuyThrow extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
+                <BackButton navigation={this.props.navigation} />
                 <LatoText type="Black" color="white" size={35} style={{ textAlign: 'center' }}>
                     How much are you willing to pay?
                 </LatoText>
