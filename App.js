@@ -10,7 +10,6 @@ import {LinearGradient} from "expo";
 import BuyThrow from "./components/BuyThrow";
 import FindPerson from "./components/FindPerson";
 
-
 const RootStack = createStackNavigator(
     {
         Home: {
@@ -21,6 +20,9 @@ const RootStack = createStackNavigator(
         },
         BuyThrow: {
             screen: BuyThrow
+        },
+        FindPerson: {
+            screen: FindPerson
         }
     },
     {
