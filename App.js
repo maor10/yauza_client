@@ -84,7 +84,8 @@ export default class App extends React.Component {
             'Lato-Italic': require('./assets/fonts/Lato-Italic.ttf'),
             'Lato-Light': require('./assets/fonts/Lato-Light.ttf'),
             'Lato-LightItalic': require('./assets/fonts/Lato-LightItalic.ttf'),
-            'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf')
+            'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),
+            'VINCHAND': require('./assets/fonts/VINCHAND.ttf'),
         });
         this.setState({loading: false});
 
@@ -108,4 +109,3 @@ const styles = StyleSheet.create({
         flex: 1
     },
 });
-
