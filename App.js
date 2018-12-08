@@ -7,8 +7,28 @@ import {
 } from 'react-navigation';
 import SellSelf from "./components/SellSelf";
 import {LinearGradient} from "expo";
-import BuyThrow from "./components/BuyThrow";
+import CreatePayOffer from "./components/CreatePayOffer";
 import FindPerson from "./components/FindPerson";
+
+
+const fade = (props) => {
+    const {position, scene} = props;
+
+    const index = scene.index;
+
+    const translateX = 0;
+    const translateY = 0;
+
+    const opacity = position.interpolate({
+        inputRange: [index - 0.7, index, index + 0.7],
+        outputRange: [0.3, 1, 0.3]
+    });
+
+    return {
+        opacity,
+        transform: [{translateX}, {translateY}]
+    }
+};
 
 
 const RootStack = createStackNavigator(
@@ -19,8 +39,8 @@ const RootStack = createStackNavigator(
         SellSelf: {
             screen: SellSelf
         },
-        BuyThrow: {
-            screen: BuyThrow
+        CreatePayOffer: {
+            screen: CreatePayOffer
         }
     },
     {
@@ -32,7 +52,12 @@ const RootStack = createStackNavigator(
         cardStyle: {
             backgroundColor: "transparent",
         },
-        transitionConfig: () => ({containerStyle: {}})
+        transitionConfig: () => ({
+            containerStyle: {},
+            screenInterpolator: (props) => {
+                return fade(props)
+            }
+        })
     }
 );
 

@@ -14,13 +14,13 @@ export default class Home extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <Container style={styles.container}>
-                <LatoText type="Italic" color='white' size={120} style={{textAlign: 'center', marginBottom: 40}}>Yauza!</LatoText>
+                <LatoText type="Hairline" color='white' size={70} style={{textAlign: 'center', marginBottom: 40}}>SlapMe</LatoText>
                 <View style={styles.optionsContainer}>
                     <View style={ styles.bodySection }>
-                        <TouchableOpacity onPress={() => navigate('BuyThrow')}>
+                        <TouchableOpacity onPress={() => navigate('CreatePayOffer')}>
                             <Image
                                 style={styles.optionImage}
-                                source={require('../assets/splash_option.png')}/>
+                                source={require('../assets/slap_hand.png')}/>
                             <LatoText
                                 style={styles.sectionText} size={15} type="Black">Do it for the lolz</LatoText>
                         </TouchableOpacity>

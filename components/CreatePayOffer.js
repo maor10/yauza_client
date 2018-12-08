@@ -8,10 +8,20 @@ import LatoText from "./general/LatoText";
 import YauzaInput from "./general/YauzaInput";
 import YauzaButton from "./general/YauzaButton";
 import BackButton from "./general/BackButton";
+import {createPayOffer} from "../actions/index";
 
 
-export default class BuyThrow extends React.Component {
+export default class CreatePayOffer extends React.Component {
 
+    state = {
+        price: null
+    };
+
+    submit = () => {
+        const { goBack } = this.props.navigation;
+        createPayOffer(this.state.price);
+        goBack();
+    };
 
     render() {
         return (
@@ -24,11 +34,11 @@ export default class BuyThrow extends React.Component {
                     We'll send you a notification when we find your bitch
                 </LatoText>
                 <View style={styles.inputGroup}>
-                    <YauzaInput style={{ marginRight: 10, width: 60 }} />
+                    <YauzaInput style={{ marginRight: 10, width: 60 }} onChange={(e) => this.setState({price: e.target.value})} />
                     <LatoText size={40}>$</LatoText>
                 </View>
                 <View style={styles.sellSelfSubmitButtonWrapper}>
-                    <YauzaButton text="Find me someone to yauza!"  onPress={() => {}} />
+                    <YauzaButton text="Find me someone to yauza!"  onPress={() => {this.submit()}} />
                 </View>
             </Container>
         );

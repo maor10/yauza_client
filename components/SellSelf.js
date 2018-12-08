@@ -7,10 +7,17 @@ import LatoText from "./general/LatoText";
 import YauzaInput from "./general/YauzaInput";
 import YauzaButton from "./general/YauzaButton";
 import BackButton from "./general/BackButton";
+import {createHitOffer} from "../actions/index";
 
 
 export default class SellSelf extends React.Component {
 
+
+    submit = () => {
+        const { goBack } = props.navigation;
+        createHitOffer(12);
+        goBack();
+    };
 
     render() {
         return (
@@ -24,7 +31,7 @@ export default class SellSelf extends React.Component {
                     <LatoText size={40}>$</LatoText>
                 </View>
                 <View style={styles.sellSelfSubmitButtonWrapper}>
-                    <YauzaButton text="Throw Balloons At Me!"  onPress={() => {}} />
+                    <YauzaButton text="Throw Balloons At Me!"  onPress={() => {this.submit()}} />
                 </View>
             </Container>
         );
