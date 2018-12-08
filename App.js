@@ -41,6 +41,9 @@ const RootStack = createStackNavigator(
         },
         CreatePayOffer: {
             screen: CreatePayOffer
+        },
+        FindPerson: {
+            screen: FindPerson
         }
     },
     {
