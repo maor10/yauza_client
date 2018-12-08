@@ -1,44 +1,55 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {Text, ImageBackground, Image, StyleSheet, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
 import {
     Button,
     Container, View
 } from 'native-base';
 import LatoText from "./general/LatoText";
+import { Font } from 'expo';
 
+class Home extends React.Component {
+  componentDidMount() {
+    Font.loadAsync({
+    });
+  }
 
-export default class Home extends React.Component {
+  render() {
+      const {navigate} = this.props.navigation;
+      return (
+          <Container style={styles.container}>
+            <ImageBackground source={require('../assets/montage.jpg')} style={{width: '100%', height: '100%'}} >
+                <View style={styles.contentContainer}>
+                  <Text color='white' style={{fontSize: 100, textAlign: 'center', marginBottom: 30, fontFamily: "VINCHAND"}}>SlapMe</Text>
+                  <Text color='red' style={{textAlign: 'center', color:'white', fontSize: 40, marginBottom: 10, fontFamily: "VINCHAND"}}> 
+                    What are you in it for?
+                  </Text>
+                  <View style={styles.optionsContainer}>
+                      <View style={ [styles.bodySection, styles.slapMeSection]}>
+                          <TouchableOpacity onPress={() => navigate('CreatePayOffer')}>
+                              <Image
+                                  style={styles.optionImage}
+                                  source={require('../assets/slap_hand.png')}/>
+                              <Text
+                                  style={styles.sectionText} type="Black">Moneys</Text>
+                          </TouchableOpacity>
+                      </View>
 
+                      <View style={ [styles.bodySection, styles.moneySection] }>
+                          <TouchableOpacity onPress={() => navigate('SellSelf')}>
+                              <Image
+                                  style={styles.optionImage}
+                                  source={require('../assets/money-bag.png')}/>
+                              <Text
+                                  style={styles.sectionText} type="Black">lols
+                              </Text>
+                          </TouchableOpacity>
+                      </View>
 
-    render() {
-        const {navigate} = this.props.navigation;
-        return (
-            <Container style={styles.container}>
-                <LatoText type="Hairline" color='white' size={70} style={{textAlign: 'center', marginBottom: 40}}>SlapMe</LatoText>
-                <View style={styles.optionsContainer}>
-                    <View style={ styles.bodySection }>
-                        <TouchableOpacity onPress={() => navigate('CreatePayOffer')}>
-                            <Image
-                                style={styles.optionImage}
-                                source={require('../assets/slap_hand.png')}/>
-                            <LatoText
-                                style={styles.sectionText} size={15} type="Black">Do it for the lolz</LatoText>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={ styles.bodySection }>
-                        <TouchableOpacity onPress={() => navigate('SellSelf')}>
-                            <Image
-                                style={styles.optionImage}
-                                source={require('../assets/money-bag.png')}/>
-                            <LatoText
-                                style={styles.sectionText} size={15} type="Black">Do it for the moneyz</LatoText>
-                        </TouchableOpacity>
-                    </View>
-
+                  </View>
                 </View>
-            </Container>
-        );
+              </ImageBackground>
+          </Container>
+      );
     }
 }
 
@@ -49,7 +60,6 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'transparent',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -85,13 +95,37 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'transparent',
+        width: '40%',
+        borderRadius: 5,
+        padding: 10
+    },
 
-        width: '50%'
+    slapMeSection: {
+      // backgroundColor: '#801a00',
+      marginRight: '3%'
+    },
+
+    moneySection: {
+        // backgroundColor: '#193366',
+        marginLeft: '3%'
     },
 
     sectionText: {
         textAlign: 'center',
-        color: 'white'
+        color: 'black',
+        fontFamily: "VINCHAND",
+        fontSize: 40
+    },
+
+    contentContainer: {
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#e65c00',
+      opacity: 0.8,
+      margin: 'auto',
+      borderRadius: 5,
+      justifyContent: 'center',
     }
 });
+
+export default Home;
