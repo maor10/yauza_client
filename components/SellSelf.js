@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Alert} from 'react-native';
 import {
     Container, View, Icon
 } from 'native-base';
@@ -12,22 +12,28 @@ import {createHitOffer} from "../actions/index";
 
 export default class SellSelf extends React.Component {
 
+    state = {
+        price: null
+    };
 
     submit = () => {
-        const { goBack } = props.navigation;
-        createHitOffer(12);
-        goBack();
+        const { goBack } = this.props.navigation;
+        createHitOffer(this.state.price).then(() => {
+            Alert.alert("Someone will slap you soon", "I'm sorry your life has come to this.");
+            goBack();
+        });
     };
 
     render() {
         return (
+            
             <Container style={styles.container}>
                 <BackButton navigation={this.props.navigation} />
                 <LatoText type="Black" color="white" size={35} style={{ textAlign: 'center', marginBottom: 45, padding: 20 }}>
                     Hi! How much is your pride worth?
                 </LatoText>
                 <View style={styles.inputGroup}>
-                    <YauzaInput style={{ marginRight: 10, width: 60 }} />
+                    <YauzaInput style={{ marginRight: 10, width: 60 }} onChange={(e) => this.setState({price: e.target.value})} />
                     <LatoText size={40}>$</LatoText>
                 </View>
                 <View style={styles.sellSelfSubmitButtonWrapper}>

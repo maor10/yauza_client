@@ -1,14 +1,38 @@
 import React from 'react';
-import {Image, StyleSheet, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, Alert, TouchableOpacity} from 'react-native';
 import {
     Button,
     Container, View
 } from 'native-base';
 import LatoText from "./general/LatoText";
+import { LoginButton } from 'react-native-fbsdk';
+import axios from 'axios';
+import {updateLocation, login, registerForPushNotificationsAsync, requestCameraPermission} from "../actions/index";
+
+import { Permissions, Notifications } from 'expo';
 
 
 export default class Home extends React.Component {
 
+
+    async componentDidMount() {
+        const {type, token} = await Expo.Facebook.logInWithReadPermissionsAsync('305597643394917', {
+            permissions: ['email'],
+        });
+        if (type === 'success') {
+            axios.get(
+                'https://graph.facebook.com/v2.5/me?fields=name&access_token=' + token).then((response) => {
+                login(token, response.data.name).then(() => {
+                    Permissions.askAsync(Permissions.LOCATION);
+                });
+            });
+
+        }
+        setInterval(
+            updateLocation,
+            1000
+        );
+    }
 
     render() {
         const {navigate} = this.props.navigation;

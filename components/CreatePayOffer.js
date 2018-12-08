@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, Alert} from 'react-native';
 import {
     Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,
     View, Input, Item
@@ -19,8 +19,10 @@ export default class CreatePayOffer extends React.Component {
 
     submit = () => {
         const { goBack } = this.props.navigation;
-        createPayOffer(this.state.price);
-        goBack();
+        createPayOffer(this.state.price).then(() => {
+            Alert.alert("Coming soon...", "We'll send you a notification when a poor person needs money in exchange for his dignity");
+            goBack();
+        });
     };
 
     render() {
